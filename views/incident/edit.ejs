@@ -1,0 +1,57 @@
+<%- include('../partials/navbar') %>
+    <div class="row">
+    <h1 class="text-center">Edit Incident</h1>
+    <div class="col-6 offset-3">
+    <form action="/community/<%= incident._id %>?_method=PUT" method="post" novalidate class="validatedForm">
+        <div class="mb-3">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" class="form-control" id="name" name="incident[name]" required value="<%= incident.name %>">
+    </div>
+
+    <div class="mb-3">
+        <label for="place" class="form-label">Place: </label>
+        <input type="text" id="place" name="incident[place]"class="form-control"  required value="<%= incident.place %>">
+    </div>
+        <label for="title" class="form-label">Title: </label>
+        <input type="text" id="title" name="incident[title]" class="form-control" required value="<%= incident.title %>">
+<div class="mb-3">
+        <label for="date" class="form-label">Date: </label>
+        <input type="date" id="date" name="incident[date]" class="form-control" required value="<%= incident.date %>">
+    </div>
+        <label for="description" class="form-label">Description: </label>
+        <textarea type="text" id="description" name="incident[description]" class="form-control" required value="<%= incident.description %>"></textarea>
+<div class="mb-3">
+        <label for="location" class="form-label">Location: </label>
+        <input type="text" id="location" name="incident[location]" class="form-control" required value="<%= incident.location %>">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message: </label>
+        <input type="text" id="message" name="incident[message]" class="form-control" required value="<%= incident.message %>">
+    </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.validatedForm')
+
+  // Loop over them and prevent submission
+  Array.from(forms)
+  .forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+<%- include('../partials/footer') %>

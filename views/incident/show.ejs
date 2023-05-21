@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<%- include('../partials/navbar') %>
+    <h1 class="title text-center">Given information</h1>
+    <div class="row">
+        <div class="col-6 offset-3">
+    <div class="card mt-5 mb-3 ">
+        <div class="card-body">
+    <h1 class="card-title text-center fs-4 fw-bold"><%= incident.title %></h1>
+    <h2 class="card-text fs-6"><span class="fs-4 fw-bold">Description:</span><%= incident.description %></h2>
+    <h3 class="card-subtitle fs-6"><span class="fs-4 fw-bold">Location:</span><%= incident.location %></h3>
+    <h3 class="card-text fs-6"><span class="fs-4 fw-bold">Message:</span> <br><%= incident.message %></h3>
+    <ul class="list-group list-group-flush mt-5">
+        <li class="list-group-item">Submitted by: <%= incident.name %></li>
+        <li class="list-group-item">Date: <%= incident.date %></li>
+        <li class="list-group-item">From: <%= incident.place%></li>
+      </ul>
+    <form action="/community/<%=incident._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-danger m-2">Delete</button>
+    </form>
+    <a href="/community" class="btn btn-success m-2">Back to home</a>
+    <a href="/community/<%= incident._id %>/edit" class="btn btn-info m-2">Edit this</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    <%- include('../partials/footer') %>
